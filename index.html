@@ -180,6 +180,7 @@ footer{background:var(--navy);color:#cbd5e1;padding:32px 20px}.footer-inner{max-
       <div class="scheme-cat" onclick="filterSchemes('Financial')">💰 Financial</div>
       <div class="scheme-cat" onclick="filterSchemes('Business')">🏪 Business</div>
       <div class="scheme-cat" onclick="filterSchemes('Health')">🏥 Health</div>
+      <div class="scheme-cat" onclick="filterSchemes('Other')">📋 Other</div>
     </div>
 
     <div class="scheme-list" id="schemeList"></div>
@@ -299,16 +300,59 @@ const groups=[
 ];
 
 const schemeItems=[
-["Farmer","👨‍🌾","Punyashlok Ahilyadevi Holkar Farmer Loan Waiver Scheme 2026","Featured/currently highlighted government scheme information; request assistance for review.",["Aadhaar Card","7/12 / 8-A if applicable","Loan/bank documents if available"]],
+["Farmer","👨‍🌾","PM-Kisan / Farmer Benefit Assistance","Assistance with PM-Kisan-related services, status/checking support and eligible benefit-service requests.",["Aadhaar","Mobile number","Farmer/land details if applicable"]],
+["Farmer","🌾","MahaDBT Farmer Scheme Assistance","Assistance with available farmer subsidy and agriculture scheme applications through the relevant portal.",["Aadhaar","7/12 / 8-A if applicable","Bank details if applicable"]],
+["Farmer","🌱","Crop Insurance / Crop Scheme Assistance","Assistance with eligible crop insurance and agriculture scheme service requests.",["Aadhaar","Crop/land documents if applicable","Bank details if applicable"]],
+["Farmer","📋","e-Pik Pahani / Crop Registration Assistance","Assistance with available crop-record and farmer online services.",["Aadhaar","7/12 / land details if applicable","Mobile number"]],
+["Farmer","📄","7/12, 8-A & Land Record Assistance","Help with online land-record/document access and related service requests.",["Aadhaar/ID","Land details if available","Mobile number"]],
+["Farmer","💳","Farmer Loan / Kisan Credit Assistance","Assistance with online information, document preparation and eligible farmer loan-related service requests.",["Aadhaar","Land/farmer documents","Bank/loan documents if applicable"]],
+["Farmer","🚜","Agriculture Subsidy & Equipment Assistance","Assistance with eligible agriculture machinery, equipment and subsidy scheme requests.",["Aadhaar","Farmer/land documents","Quotation/documents if applicable"]],
+["Farmer","🏦","Farmer Bank / Benefit Service Assistance","Assistance with eligible direct-benefit and farmer banking-related government service paperwork.",["Aadhaar","Bank passbook","Farmer documents if applicable"]],
+
 ["Women","👩","Pradhan Mantri Matru Vandana Yojana","Maternal benefit scheme assistance; eligibility and documents are checked before application.",["Aadhaar","Bank passbook","Pregnancy/maternal documents if applicable"]],
-["Education","🎓","Education & Scholarship Assistance","Help identifying and preparing applications for eligible education and scholarship schemes.",["Student ID","Marksheet","Income/category documents if applicable"]],
-["Housing","🏠","Housing & Shelter Scheme Assistance","Request assistance to identify applicable housing/shelter government services.",["Aadhaar/ID","Address proof","Income/family documents if applicable"]],
+["Women","👩‍👧","Women Welfare Scheme Assistance","Assistance to identify and request eligible women-focused government welfare services.",["Aadhaar/ID","Income/family documents if applicable","Bank details if applicable"]],
+["Women","🏠","Women Self-Help Group / Livelihood Assistance","Assistance with eligible livelihood, SHG and self-employment service requests.",["Aadhaar/ID","Group/business documents if applicable","Bank details if applicable"]],
+["Women","🎓","Women Education & Scholarship Assistance","Assistance with eligible education and scholarship services for girls/women.",["Student ID","Marksheet","Income/category documents if applicable"]],
+
+["Education","🎓","Scholarship Assistance","Help identifying and preparing applications for eligible education and scholarship schemes.",["Student ID","Marksheet","Income/category documents if applicable"]],
+["Education","🏫","Student Online Form Assistance","Online admission, examination and education-form assistance.",["Student ID","Required certificates","Photo/signature if needed"]],
+["Education","📜","Education Certificate / Document Work","Digital copies, uploads and education-document preparation assistance.",["Original/copy of certificate","Student ID","Photo if needed"]],
+["Education","💻","Student Government Portal Assistance","Assistance with eligible student services available on government portals.",["Student ID/Aadhaar","Required supporting documents"]],
+
+["Housing","🏠","PMAY / Housing Scheme Assistance","Assistance to identify and request eligible housing-scheme services.",["Aadhaar/ID","Address proof","Income/family documents if applicable"]],
+["Housing","🏡","Rural Housing Assistance","Assistance with eligible rural housing-related government services.",["Aadhaar/ID","Residence/land documents if applicable","Income/family documents"]],
+["Housing","📋","Housing Application / Document Assistance","Online form and document preparation assistance for eligible housing services.",["Aadhaar/ID","Address proof","Required scheme documents"]],
+
 ["Senior","👴","Senior Citizen Welfare Services","Assistance with available senior citizen welfare services and applications.",["Aadhaar/ID","Age proof","Bank/income documents if applicable"]],
-["Divyang","♿","Divyang Welfare Scheme Assistance","Maharashtra's Divyang Sahayak portal provides a searchable government-scheme directory.",["Disability certificate","Aadhaar/ID","Bank details if applicable"]],
-["Employment","💼","Employment & Skill Scheme Assistance","Request help finding eligible employment, skill and livelihood services.",["Aadhaar/ID","Education/skill documents","Photo"]],
-["Financial","💰","Financial Assistance Scheme Support","Assistance to identify suitable government financial-benefit services.",["Aadhaar/ID","Income proof","Bank passbook if applicable"]],
-["Business","🏪","Business & Entrepreneurship Scheme Support","Assistance with eligible entrepreneurship, self-employment and business schemes.",["Aadhaar/ID","Business documents if applicable","Bank details if applicable"]],
-["Health","🏥","Health & Welfare Scheme Assistance","Assistance with eligible government health and welfare services.",["Aadhaar/ID","Health documents if applicable","Scheme card if applicable"]]
+["Senior","💰","Senior Citizen Pension Assistance","Assistance with eligible pension and welfare-service requests.",["Aadhaar/ID","Age proof","Bank passbook/income proof if applicable"]],
+["Senior","📄","Senior Citizen Certificate / Document Help","Assistance with relevant certificates and online service requests.",["Aadhaar/ID","Age proof","Address proof"]],
+
+["Divyang","♿","Divyang Welfare Scheme Assistance","Assistance with eligible Divyang welfare schemes and applications.",["Disability certificate","Aadhaar/ID","Bank details if applicable"]],
+["Divyang","🪪","Disability Certificate / UDID Assistance","Assistance with available disability certificate/UDID-related online services.",["Aadhaar/ID","Medical/disability documents if applicable","Photo"]],
+["Divyang","💼","Divyang Employment / Benefit Assistance","Assistance with eligible employment, benefit and welfare service requests.",["Disability certificate","Aadhaar/ID","Education/skill documents if applicable"]],
+
+["Employment","💼","Employment Registration Assistance","Online employment registration and related service assistance.",["Aadhaar/ID","Education documents","Mobile number"]],
+["Employment","🛠️","Skill Development Scheme Assistance","Assistance with eligible skill-training and livelihood service requests.",["Aadhaar/ID","Education/skill documents","Photo"]],
+["Employment","📋","Job / Recruitment Form Assistance","Online job and recruitment form assistance.",["ID proof","Education certificates","Photo/signature"]],
+
+["Financial","💰","Government Financial Assistance","Assistance to identify eligible government financial-benefit services.",["Aadhaar/ID","Income proof","Bank passbook if applicable"]],
+["Financial","🏦","Pension / Benefit Application Assistance","Assistance with eligible pension and direct-benefit service requests.",["Aadhaar/ID","Bank passbook","Age/income documents if applicable"]],
+["Financial","📄","Income / EWS Related Service Assistance","Assistance with eligible income and economically weaker-section related documentation.",["Aadhaar/ID","Income proof","Address proof"]],
+
+["Business","🏪","Udyam Registration (MSME) Assistance","Assistance with Udyam/MSME registration and related online document work.",["Aadhaar","PAN","Business details/mobile"]],
+["Business","🏬","Shop Act / Shops & Establishments Assistance","Assistance with available Shop Act / Shops and Establishments registration-related online work.",["Aadhaar/ID","Business/address proof","Business details"]],
+["Business","💼","Business Registration & Online Forms","Assistance with business registrations, applications and online forms.",["Aadhaar/ID","PAN","Business/address documents if applicable"]],
+["Business","🧾","GST / Business Document Assistance","Basic online/document assistance for eligible business registration and document work.",["PAN","Aadhaar","Business details/documents"]],
+["Business","🏦","Business Loan / Scheme Assistance","Assistance with eligible government business and entrepreneurship scheme requests.",["Aadhaar","PAN","Business documents/bank details if applicable"]],
+["Business","🚀","Startup / Entrepreneurship Scheme Assistance","Assistance to identify and request eligible entrepreneurship support services.",["Aadhaar/ID","Business/project details if applicable","Bank documents if applicable"]],
+
+["Health","🏥","Health Scheme Assistance","Assistance with eligible government health and welfare services.",["Aadhaar/ID","Health documents if applicable","Scheme card if applicable"]],
+["Health","💳","Health Card / Scheme Document Assistance","Assistance with available health-card and scheme-document services.",["Aadhaar/ID","Existing health/scheme card if applicable","Photo"]],
+["Health","📋","Health Benefit Application Assistance","Online form and document assistance for eligible health benefits.",["Aadhaar/ID","Medical documents if applicable","Bank details if applicable"]],
+
+["Other","📋","Other Government Scheme Assistance","Tell us what government service or scheme you need; we will review the request and guide you.",["Aadhaar/ID","Relevant supporting documents","Mobile number"]],
+["Other","🖨️","Government Document Print / Download","Print, scan, download and upload assistance for government documents.",["Document/reference details","Mobile number"]],
+["Other","🌐","Online Government Portal Assistance","General assistance with eligible government online services and applications.",["Aadhaar/ID","Relevant documents","Mobile number"]]
 ];
 
 let all=[];
@@ -393,3 +437,4 @@ async function submitForm(e){
 </script>
 </body>
 </html>
+  
