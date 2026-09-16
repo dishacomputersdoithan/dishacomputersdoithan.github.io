@@ -1,23 +1,730 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>DISHA COMPUTERS – Setu Suvidha Kendra</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7f9fc;color:#111827}header{background:#fff;position:sticky;top:0;z-index:5;box-shadow:0 2px 12px #0001}.nav{max-width:1150px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}.brand{font-size:21px;font-weight:800}.brand span{color:#2563eb}.sub{font-size:11px;color:#64748b}.nav a{text-decoration:none;color:#111827;font-weight:700}.hero{text-align:center;padding:45px 20px 25px}.hero h1{font-size:42px;margin:0 0 8px}.hero p{color:#64748b;font-size:18px}.wrap{max-width:1150px;margin:auto;padding:0 20px 70px}.cat{font-size:23px;font-weight:800;margin:30px 0 18px;color:#f97316}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card{background:#fff;border:1px solid #dfe5ee;border-radius:10px;min-height:235px;padding:25px 15px;text-align:center;box-shadow:0 3px 10px #0000000b}.ico{width:48px;height:48px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-size:25px;background:#e9eefc}.card h3{margin:0 0 12px;font-size:18px}.card p{color:#64748b;line-height:1.45;min-height:48px}.btn{border:0;background:#16a34a;color:#fff;font-weight:800;padding:11px 18px;border-radius:6px;cursor:pointer}.overlay{display:none;position:fixed;inset:0;background:#0008;z-index:20;overflow:auto;padding:20px}.modal{background:#fff;max-width:760px;margin:20px auto;border-radius:16px;padding:26px;position:relative}.close{position:absolute;right:15px;top:8px;font-size:30px;border:0;background:none;cursor:pointer}.notice{background:#eff6ff;border:1px solid #bfdbfe;padding:13px;border-radius:9px;margin:15px 0}.field{margin:14px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px}.docs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.doc{background:#f8fafc;padding:12px;border-radius:9px;border:1px solid #e5e7eb}.doc small{display:block;color:#64748b;margin:6px 0}.actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}.secondary{background:#e5e7eb;color:#111827}#status{margin-top:14px;font-weight:700}footer{text-align:center;padding:25px;color:#64748b;background:#fff;border-top:1px solid #e5e7eb}@media(max-width:750px){.grid{grid-template-columns:1fr 1fr}.docs{grid-template-columns:1fr}.hero h1{font-size:34px}}@media(max-width:500px){.grid{grid-template-columns:1fr}}
-</style></head><body>
-<header><div class="nav"><div class="brand">DISHA <span>COMPUTERS</span><div class="sub">SETU SUVIDHA KENDRA • DOITHAN</div></div><a href="tel:7066081414">📞 7066081414</a></div></header>
-<section class="hero"><h1>Our Services</h1><p>Complete range of digital citizen services</p></section><main class="wrap" id="list"></main>
-<footer>DISHA COMPUTERS • At-Doithan, Post-Doithan, Tal-Ashti, Dist-Beed – 414203</footer>
-<div class="overlay" id="overlay"><div class="modal"><button class="close" onclick="closeForm()">×</button><h2 id="title"></h2>
-<div class="notice">📌 Upload clear JPG, PNG or PDF documents. <b>Never upload OTPs, PINs, passwords or bank login details.</b></div>
-<form onsubmit="submitForm(event)"><div class="field"><label>Customer Name *</label><input id="name" maxlength="100" required></div>
-<div class="field"><label>Mobile Number *</label><input id="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required></div>
-<div class="field"><label>Selected Service</label><input id="service" readonly></div><h3>Required Documents</h3><div class="docs" id="docs"></div>
-<div class="field"><label>Remark (optional)</label><textarea id="remark" rows="3" maxlength="500"></textarea></div>
-<div class="actions"><button type="button" class="btn secondary" onclick="closeForm()">Cancel</button><button class="btn" id="send">Submit Request</button></div><div id="status"></div></form></div></div>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f7f9fc;
+  color:#111827
+}
+
+header{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:5;
+  box-shadow:0 2px 12px #0001
+}
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  padding:10px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px
+}
+
+.logo{
+  width:210px;
+  max-width:55vw;
+  height:auto;
+  display:block
+}
+
+.nav a{
+  text-decoration:none;
+  color:#111827;
+  font-weight:700;
+  white-space:nowrap
+}
+
+.hero{
+  text-align:center;
+  padding:45px 20px 25px
+}
+
+.hero h1{
+  font-size:42px;
+  margin:0 0 8px
+}
+
+.hero p{
+  color:#64748b;
+  font-size:18px
+}
+
+.wrap{
+  max-width:1150px;
+  margin:auto;
+  padding:0 20px 70px
+}
+
+.cat{
+  font-size:23px;
+  font-weight:800;
+  margin:30px 0 18px;
+  color:#f97316
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px
+}
+
+.card{
+  background:#fff;
+  border:1px solid #dfe5ee;
+  border-radius:10px;
+  min-height:235px;
+  padding:25px 15px;
+  text-align:center;
+  box-shadow:0 3px 10px #0000000b
+}
+
+.ico{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  margin:0 auto 14px;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  background:#e9eefc
+}
+
+.card h3{
+  margin:0 0 12px;
+  font-size:18px
+}
+
+.card p{
+  color:#64748b;
+  line-height:1.45;
+  min-height:48px
+}
+
+.btn{
+  border:0;
+  background:#16a34a;
+  color:#fff;
+  font-weight:800;
+  padding:11px 18px;
+  border-radius:6px;
+  cursor:pointer
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:20;
+  overflow:auto;
+  padding:20px
+}
+
+.modal{
+  background:#fff;
+  max-width:760px;
+  margin:20px auto;
+  border-radius:16px;
+  padding:26px;
+  position:relative
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:8px;
+  font-size:30px;
+  border:0;
+  background:none;
+  cursor:pointer
+}
+
+.notice{
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  padding:13px;
+  border-radius:9px;
+  margin:15px 0
+}
+
+.field{
+  margin:14px 0
+}
+
+.field label{
+  display:block;
+  font-weight:700;
+  margin-bottom:6px
+}
+
+.field input,
+.field textarea{
+  width:100%;
+  padding:11px;
+  border:1px solid #cbd5e1;
+  border-radius:8px
+}
+
+.docs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+
+.doc{
+  background:#f8fafc;
+  padding:12px;
+  border-radius:9px;
+  border:1px solid #e5e7eb
+}
+
+.doc small{
+  display:block;
+  color:#64748b;
+  margin:6px 0
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  margin-top:20px
+}
+
+.secondary{
+  background:#e5e7eb;
+  color:#111827
+}
+
+#status{
+  margin-top:14px;
+  font-weight:700
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#64748b;
+  background:#fff;
+  border-top:1px solid #e5e7eb
+}
+
+/* WELCOME SCREEN */
+.welcome-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:50
+}
+
+.welcome-card{
+  width:min(520px,100%);
+  background:#fff;
+  border-radius:20px;
+  padding:30px 25px;
+  text-align:center;
+  box-shadow:0 15px 50px #0005;
+  position:relative
+}
+
+.welcome-logo{
+  width:280px;
+  max-width:90%;
+  height:auto;
+  margin:0 auto 15px
+}
+
+.welcome-card h2{
+  margin:8px 0;
+  font-size:26px;
+  color:#1d4ed8
+}
+
+.welcome-card p{
+  margin:8px 0;
+  color:#475569;
+  font-size:17px
+}
+
+.welcome-card .continue{
+  margin-top:18px;
+  background:#16a34a;
+  color:#fff;
+  border:0;
+  border-radius:8px;
+  padding:13px 22px;
+  font-weight:800;
+  cursor:pointer;
+  font-size:15px
+}
+
+.welcome-close{
+  position:absolute;
+  right:15px;
+  top:10px;
+  border:0;
+  background:none;
+  font-size:30px;
+  cursor:pointer;
+  color:#64748b
+}
+
+@media(max-width:750px){
+  .grid{
+    grid-template-columns:1fr 1fr
+  }
+
+  .docs{
+    grid-template-columns:1fr
+  }
+
+  .hero h1{
+    font-size:34px
+  }
+
+  .nav{
+    padding:8px 12px
+  }
+
+  .logo{
+    width:175px
+  }
+
+  .nav a{
+    font-size:13px
+  }
+}
+
+@media(max-width:500px){
+  .grid{
+    grid-template-columns:1fr
+  }
+
+  .logo{
+    width:155px
+  }
+
+  .nav a{
+    font-size:12px
+  }
+
+  .welcome-card h2{
+    font-size:22px
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <img src="disha-logo.png" class="logo" alt="DISHA COMPUTERS">
+    <a href="tel:7066081414">📞 7066081414</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Our Services</h1>
+  <p>Complete range of digital citizen services</p>
+</section>
+
+<main class="wrap" id="list"></main>
+
+<footer>
+  DISHA COMPUTERS • At-Doithan, Post-Doithan, Tal-Ashti, Dist-Beed – 414203
+</footer>
+
+<!-- WELCOME MESSAGE -->
+<div class="welcome-overlay" id="welcome">
+  <div class="welcome-card">
+
+    <button class="welcome-close" onclick="closeWelcome()">×</button>
+
+    <img src="disha-logo.png"
+         class="welcome-logo"
+         alt="DISHA COMPUTERS">
+
+    <h2>👋 Welcome to DISHA COMPUTERS</h2>
+
+    <p><b>Setu Suvidha Kendra – Doithan</b></p>
+
+    <p>How can we help you today?</p>
+
+    <button class="continue" onclick="closeWelcome()">
+      Continue to Services
+    </button>
+
+  </div>
+</div>
+
+<!-- CUSTOMER REQUEST FORM -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+
+    <button class="close" onclick="closeForm()">×</button>
+
+    <h2 id="title"></h2>
+
+    <div class="notice">
+      📌 Upload clear JPG, PNG or PDF documents.
+      <b>Never upload OTPs, PINs, passwords or bank login details.</b>
+    </div>
+
+    <form onsubmit="submitForm(event)">
+
+      <div class="field">
+        <label>Customer Name *</label>
+        <input id="name" maxlength="100" required>
+      </div>
+
+      <div class="field">
+        <label>Mobile Number *</label>
+        <input
+          id="mobile"
+          type="tel"
+          inputmode="numeric"
+          pattern="[0-9]{10}"
+          maxlength="10"
+          required>
+      </div>
+
+      <div class="field">
+        <label>Selected Service</label>
+        <input id="service" readonly>
+      </div>
+
+      <h3>Required Documents</h3>
+
+      <div class="docs" id="docs"></div>
+
+      <div class="field">
+        <label>Remark (optional)</label>
+        <textarea id="remark" rows="3" maxlength="500"></textarea>
+      </div>
+
+      <div class="actions">
+        <button
+          type="button"
+          class="btn secondary"
+          onclick="closeForm()">
+          Cancel
+        </button>
+
+        <button class="btn" id="send">
+          Submit Request
+        </button>
+      </div>
+
+      <div id="status"></div>
+
+    </form>
+  </div>
+</div>
+
 <script>
-const WEB_APP_URL="https://script.google.com/macros/s/AKfycbwUPnEY19Vz29pT-T2Y1qNVhv8hdFkL1857CTyA4-7e-sixfhhwAJQP-rurIiHUGjbm3Q/exec";const groups=[["Identity Documents", [["🪪", "Aadhaar Card", "Demographic Changes • Aadhaar–PAN Link • Aadhaar–Bank Link", ["Aadhaar Card", "Recent photo", "Mobile number"]], ["💳", "PAN Card", "New PAN Card • Changes in Existing PAN Card", ["Aadhaar Card", "Photo", "Signature"]], ["🗳️", "Voter ID", "New Voter Registration • Changes in existing Voter ID", ["Aadhaar/ID proof", "Address proof", "Photo"]], ["🚗", "Driving Licence", "Online licence-related applications and services", ["Aadhaar/ID proof", "Address proof", "Existing licence (if applicable)"]], ["📘", "Passport Services", "Online passport application assistance", ["Aadhaar/ID proof", "Address proof", "Photo"]]]], ["Certificates & Government Services", [["💰", "Income Certificate", "Online application assistance", ["Aadhaar/ID proof", "Address proof", "Income proof"]], ["📜", "Caste Certificate", "Online application assistance", ["Aadhaar/ID proof", "Address proof", "Caste-related documents"]], ["🏡", "Domicile Certificate", "Online application assistance", ["Aadhaar/ID proof", "Address proof", "Residence proof"]], ["👶", "Birth Certificate", "Online application assistance", ["Existing birth record / proof", "Parent ID", "Address proof"]], ["🏛️", "Other Maha e-Seva", "Ask us about available citizen services", ["Relevant ID proof", "Relevant supporting documents"]]]], ["Education & Online Work", [["🎓", "Education Services", "Online forms, applications and education-related work", ["Student ID / Aadhaar", "Marksheet / certificate", "Photo"]], ["📝", "Online Forms", "Government, education and other online forms", ["ID proof", "Required supporting document", "Photo/signature if needed"]], ["💻", "Digital & Document Work", "Online work and document-related assistance", ["Required documents", "Mobile number"]]]]];let all=[];
-groups.forEach(g=>{let s=document.createElement("section");s.innerHTML='<div class="cat">'+g[0]+'</div><div class="grid"></div>';let gr=s.querySelector(".grid");g[1].forEach(x=>{let i=all.length;all.push(x);gr.insertAdjacentHTML("beforeend",`<article class="card"><div class="ico">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p><button class="btn" onclick="openForm(${i})">Get Started</button></article>`);});document.getElementById("list").appendChild(s);});
-function openForm(i){let x=all[i];document.getElementById("overlay").style.display="block";document.getElementById("title").textContent=x[1]+" – Request";document.getElementById("service").value=x[1];document.getElementById("status").textContent="";document.getElementById("docs").innerHTML=x[3].map((d,n)=>`<div class="doc"><b>${d}</b><small>JPG, PNG or PDF • Max 5 MB</small><input type="file" name="d${n}" accept=".jpg,.jpeg,.png,.pdf,application/pdf,image/jpeg,image/png"></div>`).join("");}
-function closeForm(){document.getElementById("overlay").style.display="none"}
-function b64(f){return new Promise((ok,no)=>{let r=new FileReader();r.onload=()=>ok(String(r.result).split(",")[1]);r.onerror=no;r.readAsDataURL(f)})}
-async function submitForm(e){e.preventDefault();let st=document.getElementById("status"),btn=document.getElementById("send");let fs=[...document.querySelectorAll("#docs input[type=file]")].filter(x=>x.files.length).map(x=>x.files[0]);if(!fs.length){st.style.color="#b91c1c";st.textContent="Please upload at least one document.";return}if(fs.some(f=>f.size>5242880||!["image/jpeg","image/png","application/pdf"].includes(f.type))){st.style.color="#b91c1c";st.textContent="Each file must be JPG, PNG or PDF and max 5 MB.";return}btn.disabled=true;st.style.color="#1d4ed8";st.textContent="Uploading… please wait.";try{let docs=[];for(let f of fs)docs.push({fileName:f.name,mimeType:f.type,data:await b64(f)});let p={customerName:document.getElementById("name").value.trim(),mobile:document.getElementById("mobile").value.trim(),service:document.getElementById("service").value,remark:document.getElementById("remark").value.trim(),documents:docs};await fetch(WEB_APP_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(p)});st.style.color="#166534";st.textContent="Request submitted successfully. DISHA COMPUTERS will contact you.";e.target.reset()}catch(err){st.style.color="#b91c1c";st.textContent="Upload failed. Please call 7066081414."}btn.disabled=false}
-</script></body></html>
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbwUPnEY19Vz29pT-T2Y1qNVhv8hdFkL1857CTyA4-7e-sixfhhwAJQP-rurIiHUGjbm3Q/exec";
+
+const groups = [
+
+[
+"Identity Documents",
+[
+["🪪","Aadhaar Card",
+"Demographic Changes • Aadhaar–PAN Link • Aadhaar–Bank Link",
+["Aadhaar Card","Recent photo","Mobile number"]],
+
+["💳","PAN Card",
+"New PAN Card • Changes in Existing PAN Card",
+["Aadhaar Card","Photo","Signature"]],
+
+["🗳️","Voter ID",
+"New Voter Registration • Changes in existing Voter ID",
+["Aadhaar/ID proof","Address proof","Photo"]],
+
+["🚗","Driving Licence",
+"Online licence-related applications and services",
+["Aadhaar/ID proof","Address proof","Existing licence (if applicable)"]],
+
+["📘","Passport Services",
+"Online passport application assistance",
+["Aadhaar/ID proof","Address proof","Photo"]]
+]
+],
+
+[
+"Certificates & Government Services",
+[
+["💰","Income Certificate",
+"Online application assistance",
+["Aadhaar/ID proof","Address proof","Income proof"]],
+
+["📜","Caste Certificate",
+"Online application assistance",
+["Aadhaar/ID proof","Address proof","Caste-related documents"]],
+
+["🏡","Domicile Certificate",
+"Online application assistance",
+["Aadhaar/ID proof","Address proof","Residence proof"]],
+
+["👶","Birth Certificate",
+"Online application assistance",
+["Existing birth record / proof","Parent ID","Address proof"]],
+
+["🏛️","Other Maha e-Seva",
+"Ask us about available citizen services",
+["Relevant ID proof","Relevant supporting documents"]]
+]
+],
+
+[
+"Education & Online Work",
+[
+["🎓","Education Services",
+"Online forms, applications and education-related work",
+["Student ID / Aadhaar","Marksheet / certificate","Photo"]],
+
+["📝","Online Forms",
+"Government, education and other online forms",
+["ID proof","Required supporting document","Photo/signature if needed"]],
+
+["💻","Digital & Document Work",
+"Online work and document-related assistance",
+["Required documents","Mobile number"]]
+]
+]
+
+];
+
+let all = [];
+
+groups.forEach(g => {
+
+  let s = document.createElement("section");
+
+  s.innerHTML =
+    '<div class="cat">'+g[0]+'</div><div class="grid"></div>';
+
+  let gr = s.querySelector(".grid");
+
+  g[1].forEach(x => {
+
+    let i = all.length;
+
+    all.push(x);
+
+    gr.insertAdjacentHTML(
+      "beforeend",
+      `<article class="card">
+        <div class="ico">${x[0]}</div>
+        <h3>${x[1]}</h3>
+        <p>${x[2]}</p>
+        <button class="btn" onclick="openForm(${i})">
+          Get Started
+        </button>
+      </article>`
+    );
+
+  });
+
+  document.getElementById("list").appendChild(s);
+
+});
+
+
+/* WELCOME SCREEN */
+
+function closeWelcome(){
+  document.getElementById("welcome").style.display = "none";
+}
+
+window.addEventListener("load",function(){
+  document.getElementById("welcome").style.display = "flex";
+});
+
+
+/* CUSTOMER FORM */
+
+function openForm(i){
+
+  let x = all[i];
+
+  document.getElementById("overlay").style.display = "block";
+
+  document.getElementById("title").textContent =
+    x[1] + " – Request";
+
+  document.getElementById("service").value = x[1];
+
+  document.getElementById("status").textContent = "";
+
+  document.getElementById("docs").innerHTML =
+    x[3].map((d,n) =>
+
+      `<div class="doc">
+        <b>${d}</b>
+        <small>JPG, PNG or PDF • Max 5 MB</small>
+        <input
+          type="file"
+          name="d${n}"
+          accept=".jpg,.jpeg,.png,.pdf,application/pdf,image/jpeg,image/png">
+      </div>`
+
+    ).join("");
+}
+
+
+function closeForm(){
+  document.getElementById("overlay").style.display = "none";
+}
+
+
+function b64(f){
+
+  return new Promise((ok,no) => {
+
+    let r = new FileReader();
+
+    r.onload = () =>
+      ok(String(r.result).split(",")[1]);
+
+    r.onerror = no;
+
+    r.readAsDataURL(f);
+
+  });
+
+}
+
+
+async function submitForm(e){
+
+  e.preventDefault();
+
+  let st = document.getElementById("status");
+  let btn = document.getElementById("send");
+
+  let fs =
+    [...document.querySelectorAll("#docs input[type=file]")]
+    .filter(x => x.files.length)
+    .map(x => x.files[0]);
+
+  if(!fs.length){
+
+    st.style.color = "#b91c1c";
+    st.textContent = "Please upload at least one document.";
+
+    return;
+  }
+
+  if(
+    fs.some(
+      f =>
+      f.size > 5242880 ||
+      ![
+        "image/jpeg",
+        "image/png",
+        "application/pdf"
+      ].includes(f.type)
+    )
+  ){
+
+    st.style.color = "#b91c1c";
+    st.textContent =
+      "Each file must be JPG, PNG or PDF and max 5 MB.";
+
+    return;
+  }
+
+  btn.disabled = true;
+
+  st.style.color = "#1d4ed8";
+  st.textContent = "Uploading… please wait.";
+
+  try{
+
+    let docs = [];
+
+    for(let f of fs){
+
+      docs.push({
+        fileName:f.name,
+        mimeType:f.type,
+        data:await b64(f)
+      });
+
+    }
+
+    let p = {
+
+      customerName:
+        document.getElementById("name").value.trim(),
+
+      mobile:
+        document.getElementById("mobile").value.trim(),
+
+      service:
+        document.getElementById("service").value,
+
+      remark:
+        document.getElementById("remark").value.trim(),
+
+      documents:docs
+
+    };
+
+    await fetch(
+      WEB_APP_URL,
+      {
+        method:"POST",
+        mode:"no-cors",
+        headers:{
+          "Content-Type":"text/plain;charset=utf-8"
+        },
+        body:JSON.stringify(p)
+      }
+    );
+
+    st.style.color = "#166534";
+
+    st.textContent =
+      "Request submitted successfully. DISHA COMPUTERS will contact you.";
+
+    e.target.reset();
+
+  }catch(err){
+
+    st.style.color = "#b91c1c";
+
+    st.textContent =
+      "Upload failed. Please call 7066081414.";
+
+  }
+
+  btn.disabled = false;
+}
+
+</script>
+
+</body>
+</html>
