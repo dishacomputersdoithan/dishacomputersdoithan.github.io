@@ -1,656 +1,1946 @@
-const FOLDER_ID = "19SY0sG4d5qjgfuLKISpBgE86m6JMoNr1";
-const OWNER_EMAIL = "golharbabu16@gmail.com";
-const SHEET_NAME = "Customer Requests";
-const DATABASE_NAME = "DISHA COMPUTERS Customer Database";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>DISHA COMPUTERS | Setu Suvidha Kendra</title>
+
+<meta
+  name="description"
+  content="DISHA COMPUTERS - Setu Suvidha Kendra, Doithan. Online services, government schemes, education certificates, forms, printing, xerox and document services."
+>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#1f2937;
+  line-height:1.5;
+}
+
+button,
+input,
+textarea,
+select{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.topbar{
+  background:#111827;
+  color:#fff;
+  padding:8px 20px;
+  text-align:right;
+  font-size:14px;
+}
+
+header{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  padding:18px 5%;
+  box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.logo-area img{
+  width:70px;
+  height:70px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:15px;
+  padding:5px;
+}
+
+.logo-area h1{
+  font-size:28px;
+}
+
+.logo-area p{
+  font-size:14px;
+  opacity:.95;
+}
+
+.hero{
+  background:
+    linear-gradient(
+      rgba(15,23,42,.72),
+      rgba(30,64,175,.72)
+    ),
+    url("disha-logo.png");
+
+  background-size:cover;
+  background-position:center;
+
+  color:white;
+  padding:70px 20px;
+  text-align:center;
+}
+
+.hero-content{
+  max-width:900px;
+  margin:auto;
+}
+
+.hero h2{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.hero .owner{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.hero .address{
+  font-size:16px;
+  margin-bottom:25px;
+}
+
+.btn{
+  display:inline-block;
+  border:none;
+  background:linear-gradient(135deg,#f97316,#ea580c);
+  color:white;
+  padding:12px 22px;
+  border-radius:10px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 15px rgba(0,0,0,.2);
+}
+
+.btn.secondary{
+  background:#64748b;
+}
+
+section{
+  padding:50px 20px;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-title h2{
+  font-size:30px;
+  color:#1e3a8a;
+}
+
+.section-title p{
+  color:#64748b;
+  margin-top:5px;
+}
+
+.search-box{
+  max-width:650px;
+  margin:0 auto 25px;
+}
+
+.search-box input{
+  width:100%;
+  padding:14px 18px;
+  border:1px solid #cbd5e1;
+  border-radius:12px;
+  outline:none;
+  font-size:16px;
+}
+
+.category-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:30px;
+}
+
+.category-buttons button{
+  border:none;
+  padding:9px 15px;
+  border-radius:20px;
+  background:#dbeafe;
+  color:#1e40af;
+  font-weight:bold;
+}
+
+.category-buttons button:hover{
+  background:#2563eb;
+  color:#fff;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+}
+
+.service-card{
+  background:#fff;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 5px 18px rgba(15,23,42,.08);
+  border:1px solid #e2e8f0;
+  transition:.2s;
+}
+
+.service-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(15,23,42,.14);
+}
+
+.service-card h3{
+  color:#1d4ed8;
+  margin-bottom:8px;
+}
+
+.service-card p{
+  color:#64748b;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.scheme-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
+}
+
+.scheme-card{
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  border-left:5px solid #7c3aed;
+  box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.scheme-card h3{
+  color:#5b21b6;
+  margin-bottom:8px;
+}
+
+.scheme-card p{
+  color:#64748b;
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.everyday{
+  background:#eef2ff;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.info-card{
+  background:#fff;
+  padding:22px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.info-card h3{
+  color:#1e40af;
+  margin-bottom:8px;
+}
+
+footer{
+  background:#111827;
+  color:#fff;
+  padding:35px 20px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+footer h3{
+  margin-bottom:10px;
+}
+
+footer p{
+  color:#cbd5e1;
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:15px;
+}
+
+.footer-links a{
+  text-decoration:none;
+  background:#2563eb;
+  color:#fff;
+  padding:9px 13px;
+  border-radius:8px;
+  font-size:13px;
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.72);
+  z-index:9999;
+  padding:20px;
+  overflow:auto;
+}
+
+.overlay.show{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal{
+  width:min(650px,100%);
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.close{
+  position:absolute;
+  right:14px;
+  top:10px;
+  width:35px;
+  height:35px;
+  border:none;
+  border-radius:50%;
+  background:#fee2e2;
+  color:#b91c1c;
+  font-size:24px;
+}
+
+.modal h2{
+  color:#1e3a8a;
+  margin-bottom:18px;
+  padding-right:35px;
+}
+
+.notice{
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  color:#9a3412;
+  padding:12px;
+  border-radius:10px;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.field{
+  margin-bottom:15px;
+}
+
+.field label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.field input,
+.field textarea{
+  width:100%;
+  padding:11px 13px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  outline:none;
+}
+
+.field input:focus,
+.field textarea:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 0 3px rgba(37,99,235,.1);
+}
+
+.docs{
+  display:grid;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.docs label{
+  display:block;
+  padding:12px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+}
+
+.docs input[type=file]{
+  width:100%;
+  margin-top:7px;
+}
+
+.actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:20px;
+}
+
+#status{
+  margin-top:15px;
+  font-weight:bold;
+  text-align:center;
+}
+
+.welcome{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.75);
+  z-index:10000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.welcome.show{
+  display:flex;
+}
+
+.welcome-box{
+  background:white;
+  width:min(500px,100%);
+  border-radius:20px;
+  padding:35px;
+  text-align:center;
+}
+
+.welcome-box h2{
+  color:#2563eb;
+  margin-bottom:10px;
+}
+
+.welcome-box p{
+  color:#64748b;
+  margin-bottom:20px;
+}
+
+.scheme-popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.7);
+  z-index:9998;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.scheme-popup.show{
+  display:flex;
+}
+
+.scheme-popup-box{
+  background:white;
+  width:min(600px,100%);
+  padding:30px;
+  border-radius:18px;
+  text-align:center;
+}
+
+@media(max-width:700px){
+
+  .header-inner{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero h2{
+    font-size:32px;
+  }
+
+  .logo-area{
+    justify-content:center;
+  }
+
+  .actions{
+    flex-direction:column;
+  }
+
+  .actions .btn{
+    width:100%;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
 
 
-function doGet() {
-  return ContentService
-    .createTextOutput("DISHA COMPUTERS Customer Request Service is running.")
-    .setMimeType(ContentService.MimeType.TEXT);
+<!-- ======================================================
+     TOP BAR
+====================================================== -->
+
+<div class="topbar">
+  📞 7066081414
+</div>
+
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+  <div class="header-inner">
+
+    <div class="logo-area">
+
+      <img
+        src="disha-logo.png"
+        alt="DISHA COMPUTERS Logo"
+      >
+
+      <div>
+
+        <h1>DISHA COMPUTERS</h1>
+
+        <p>
+          Setu Suvidha Kendra
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h2>
+      Welcome to DISHA COMPUTERS
+    </h2>
+
+    <div class="owner">
+      Owner: <b>Bhaginath Golhar</b>
+    </div>
+
+    <div class="address">
+      At-Doithan, Post-Doithan,
+      Tal-Ashti, Dist-Beed,
+      PIN 414203
+    </div>
+
+    <button
+      class="btn"
+      onclick="scrollToServices()"
+    >
+      Get Started
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     SERVICES
+====================================================== -->
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        Online Services
+      </h2>
+
+      <p>
+        Select a service and submit your request online.
+      </p>
+
+    </div>
+
+
+    <div class="search-box">
+
+      <input
+        id="serviceSearch"
+        type="search"
+        placeholder="🔎 Search service..."
+        oninput="renderServices()"
+      >
+
+    </div>
+
+
+    <div
+      class="category-buttons"
+      id="categoryButtons"
+    ></div>
+
+
+    <div
+      class="service-grid"
+      id="serviceGrid"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     GOVERNMENT SCHEMES
+====================================================== -->
+
+<section id="schemes">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        Government Schemes & Yojana
+      </h2>
+
+      <p>
+        Explore government facilities and request assistance.
+      </p>
+
+      <br>
+
+      <a
+        class="btn"
+        href="https://www.myscheme.gov.in/"
+        target="_blank"
+        rel="noopener"
+      >
+        🌐 Official myScheme Website
+      </a>
+
+    </div>
+
+
+    <div
+      class="scheme-grid"
+      id="schemeGrid"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     EVERYDAY DIGITAL SERVICES
+====================================================== -->
+
+<section class="everyday">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        Everyday Digital Services
+      </h2>
+
+      <p>
+        Printing, xerox, scanning and other online work.
+      </p>
+
+    </div>
+
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <h3>🖨️ Printing</h3>
+        <p>
+          Black & white and colour printing.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>📄 Xerox</h3>
+        <p>
+          Document photocopy services.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>📑 Scanning</h3>
+        <p>
+          Scan documents and prepare digital files.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>💻 Online Forms</h3>
+        <p>
+          Assistance with various online applications.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>🎓 Education</h3>
+        <p>
+          Education certificates and online services.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>🏢 Business Services</h3>
+        <p>
+          Udyam, Shop Act and other business-related services.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+
+      <h3>
+        DISHA COMPUTERS
+      </h3>
+
+      <p>
+        Setu Suvidha Kendra
+      </p>
+
+      <p>
+        Owner: Bhaginath Golhar
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Address
+      </h3>
+
+      <p>
+        At-Doithan, Post-Doithan
+      </p>
+
+      <p>
+        Tal-Ashti, Dist-Beed
+      </p>
+
+      <p>
+        PIN 414203
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Contact
+      </h3>
+
+      <p>
+        📞 7066081414
+      </p>
+
+      <div class="footer-links">
+
+        <a
+          href="tel:7066081414"
+        >
+          Call
+        </a>
+
+        <a
+          href="https://wa.me/917066081414"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+
+        <a
+          href="https://maps.google.com/?q=Doithan,Beed,Maharashtra"
+          target="_blank"
+          rel="noopener"
+        >
+          Map
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ======================================================
+     HIDDEN SUBMISSION IFRAME
+====================================================== -->
+
+<iframe
+  name="dishaSubmitFrame"
+  id="dishaSubmitFrame"
+  style="
+    display:none;
+    width:0;
+    height:0;
+    border:0;
+  "
+></iframe>
+
+
+<!-- ======================================================
+     CUSTOMER REQUEST MODAL
+====================================================== -->
+
+<div
+  class="overlay"
+  id="overlay"
+>
+
+  <div class="modal">
+
+    <button
+      class="close"
+      onclick="closeForm()"
+    >
+      ×
+    </button>
+
+
+    <h2 id="title">
+      Customer Request
+    </h2>
+
+
+    <div class="notice">
+
+      📌 Upload clear JPG, PNG or PDF documents.
+
+      <br>
+
+      <b>
+        Never upload OTPs, PINs, passwords
+        or bank login details.
+      </b>
+
+    </div>
+
+
+    <form
+      onsubmit="submitForm(event)"
+    >
+
+      <div class="field">
+
+        <label>
+          Customer Name *
+        </label>
+
+        <input
+          id="name"
+          maxlength="100"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Mobile Number *
+        </label>
+
+        <input
+          id="mobile"
+          type="tel"
+          inputmode="numeric"
+          pattern="[0-9]{10}"
+          maxlength="10"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Selected Service
+        </label>
+
+        <input
+          id="service"
+          readonly
+        >
+
+      </div>
+
+
+      <h3>
+        Required Documents
+      </h3>
+
+      <div
+        class="docs"
+        id="docs"
+      ></div>
+
+
+      <div class="field">
+
+        <label>
+          Remark (optional)
+        </label>
+
+        <textarea
+          id="remark"
+          rows="3"
+          maxlength="500"
+          placeholder="Tell us what service you need..."
+        ></textarea>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          type="button"
+          class="btn secondary"
+          onclick="closeForm()"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="btn"
+          id="send"
+        >
+          Submit Request
+        </button>
+
+      </div>
+
+
+      <div id="status"></div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ======================================================
+     WELCOME POPUP
+====================================================== -->
+
+<div
+  class="welcome"
+  id="welcome"
+>
+
+  <div class="welcome-box">
+
+    <h2>
+      Welcome to DISHA COMPUTERS
+    </h2>
+
+    <p>
+      Setu Suvidha Kendra, Doithan
+    </p>
+
+    <p>
+      Online services, government schemes,
+      certificates, forms, printing and more.
+    </p>
+
+    <button
+      class="btn"
+      onclick="closeWelcome()"
+    >
+      Continue
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ======================================================
+     SCHEME POPUP
+====================================================== -->
+
+<div
+  class="scheme-popup"
+  id="schemePopup"
+>
+
+  <div class="scheme-popup-box">
+
+    <h2 id="schemePopupTitle"></h2>
+
+    <p
+      id="schemePopupText"
+      style="margin:15px 0;color:#64748b;"
+    ></p>
+
+    <button
+      class="btn"
+      onclick="closeSchemePopup()"
+    >
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* ==========================================================
+   APPS SCRIPT URL
+========================================================== */
+
+const WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbwUPnEY19Vz29pT-T2Y1qNVhv8hdFkL1857CTyA4-7e-sixfhhwAJQP-rurIiHUGjbm3Q/exec";
+
+
+/* ==========================================================
+   SERVICES
+========================================================== */
+
+const services = [
+
+  {
+    name:"Education Certificate",
+    category:"Education",
+    description:"Education certificates and related online work.",
+    docs:["Identity document","Education document"]
+  },
+
+  {
+    name:"Online Forms",
+    category:"Online Services",
+    description:"Assistance with various online application forms.",
+    docs:["Required documents"]
+  },
+
+  {
+    name:"Aadhaar Services",
+    category:"Government",
+    description:"Assistance with available Aadhaar-related services.",
+    docs:["Required Aadhaar documents"]
+  },
+
+  {
+    name:"Udyam Registration",
+    category:"Business",
+    description:"Assistance with Udyam registration services.",
+    docs:["Aadhaar","PAN","Business details"]
+  },
+
+  {
+    name:"Shop Act",
+    category:"Business",
+    description:"Assistance with Shop Act related applications.",
+    docs:["Identity document","Business details","Address proof"]
+  },
+
+  {
+    name:"Government Scheme Assistance",
+    category:"Government",
+    description:"Government scheme information and application assistance.",
+    docs:["Required documents"]
+  },
+
+  {
+    name:"Farmer Services",
+    category:"Farmer",
+    description:"Farmer-related online government services.",
+    docs:["Identity document","Land document"]
+  },
+
+  {
+    name:"Women Services",
+    category:"Women",
+    description:"Women-related government services and assistance.",
+    docs:["Identity document","Required documents"]
+  },
+
+  {
+    name:"Scholarship",
+    category:"Education",
+    description:"Education and scholarship application assistance.",
+    docs:["Student document","Education document"]
+  },
+
+  {
+    name:"Housing Scheme",
+    category:"Housing",
+    description:"Housing scheme application assistance.",
+    docs:["Identity document","Address proof"]
+  },
+
+  {
+    name:"Senior Citizen Services",
+    category:"Senior Citizen",
+    description:"Senior citizen related government services.",
+    docs:["Identity document","Age proof"]
+  },
+
+  {
+    name:"Divyang Services",
+    category:"Divyang",
+    description:"Assistance with Divyang-related government services.",
+    docs:["Identity document","Disability document"]
+  },
+
+  {
+    name:"Employment Services",
+    category:"Employment",
+    description:"Employment and job-related online services.",
+    docs:["Identity document","Education document"]
+  },
+
+  {
+    name:"Financial Assistance",
+    category:"Financial",
+    description:"Assistance with eligible government financial schemes.",
+    docs:["Identity document","Required documents"]
+  },
+
+  {
+    name:"Health Services",
+    category:"Health",
+    description:"Online assistance for available health-related services.",
+    docs:["Identity document","Required documents"]
+  },
+
+  {
+    name:"Business Services",
+    category:"Business",
+    description:"Business-related registrations and online services.",
+    docs:["Identity document","Business documents"]
+  },
+
+  {
+    name:"Other Government Services",
+    category:"Other",
+    description:"Other government service assistance.",
+    docs:["Required documents"]
+
+  }
+
+];
+
+
+/* ==========================================================
+   GOVERNMENT SCHEME CATEGORIES
+========================================================== */
+
+const schemes = [
+
+  {
+    name:"Farmer",
+    text:"Farmer-related schemes, agriculture assistance, certificates and online government facilities."
+  },
+
+  {
+    name:"Women",
+    text:"Women-related welfare schemes, assistance and government facilities."
+  },
+
+  {
+    name:"Education & Scholarship",
+    text:"Scholarships, education support, certificates and student-related facilities."
+  },
+
+  {
+    name:"Housing",
+    text:"Housing assistance and eligible government housing facilities."
+  },
+
+  {
+    name:"Senior Citizen",
+    text:"Senior citizen welfare and related government facilities."
+  },
+
+  {
+    name:"Divyang",
+    text:"Divyang-related certificates, assistance and government facilities."
+  },
+
+  {
+    name:"Employment",
+    text:"Employment, job registration and related government facilities."
+  },
+
+  {
+    name:"Financial Assistance",
+    text:"Eligible financial assistance and welfare scheme information."
+  },
+
+  {
+    name:"Business",
+    text:"Business registration, Udyam, Shop Act and other business facilities."
+  },
+
+  {
+    name:"Health",
+    text:"Health-related government schemes and assistance."
+  },
+
+  {
+    name:"Other Government Schemes",
+    text:"Other government schemes and citizen services."
+  }
+
+];
+
+
+/* ==========================================================
+   CATEGORIES
+========================================================== */
+
+const categories = [
+  "All",
+  ...new Set(
+    services.map(
+      service => service.category
+    )
+  )
+];
+
+
+/* ==========================================================
+   RENDER CATEGORY BUTTONS
+========================================================== */
+
+function renderCategories(){
+
+  const box =
+    document.getElementById(
+      "categoryButtons"
+    );
+
+  box.innerHTML = "";
+
+  categories.forEach(
+    function(category){
+
+      const button =
+        document.createElement("button");
+
+      button.textContent =
+        category;
+
+      button.onclick =
+        function(){
+
+          document.getElementById(
+            "serviceSearch"
+          ).value = "";
+
+          renderServices(category);
+
+        };
+
+      box.appendChild(button);
+
+    }
+  );
+
 }
 
 
 /* ==========================================================
-   DATABASE
-   ========================================================== */
+   RENDER SERVICES
+========================================================== */
 
-function getDatabase_() {
-
-  const properties =
-    PropertiesService.getScriptProperties();
-
-  let spreadsheetId =
-    properties.getProperty("DATABASE_SPREADSHEET_ID");
+let selectedCategory = "All";
 
 
-  if (spreadsheetId) {
+function renderServices(category){
 
-    try {
-      return SpreadsheetApp.openById(spreadsheetId);
-    }
+  if(category){
+    selectedCategory = category;
+  }
 
-    catch (error) {
-      console.log(
-        "Saved database could not be opened: " +
-        error
-      );
-    }
+  const search =
+    document.getElementById(
+      "serviceSearch"
+    ).value
+      .trim()
+      .toLowerCase();
+
+
+  const grid =
+    document.getElementById(
+      "serviceGrid"
+    );
+
+  grid.innerHTML = "";
+
+
+  const filtered =
+    services.filter(
+      function(service){
+
+        const categoryMatch =
+          selectedCategory === "All" ||
+          service.category === selectedCategory;
+
+        const searchMatch =
+          !search ||
+          service.name
+            .toLowerCase()
+            .includes(search) ||
+          service.description
+            .toLowerCase()
+            .includes(search) ||
+          service.category
+            .toLowerCase()
+            .includes(search);
+
+        return categoryMatch && searchMatch;
+
+      }
+    );
+
+
+  if(!filtered.length){
+
+    grid.innerHTML =
+      "<p style='text-align:center;grid-column:1/-1;color:#64748b;'>No services found.</p>";
+
+    return;
 
   }
 
 
-  const folder =
-    DriveApp.getFolderById(FOLDER_ID);
+  filtered.forEach(
+    function(service){
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "service-card";
 
 
-  const files =
-    folder.getFilesByName(DATABASE_NAME);
+      card.innerHTML = `
+
+        <h3>
+          ${escapeHtml(service.name)}
+        </h3>
+
+        <p>
+          ${escapeHtml(service.description)}
+        </p>
+
+        <button
+          class="btn"
+          type="button"
+        >
+          Get Started
+        </button>
+
+      `;
 
 
-  if (files.hasNext()) {
+      card
+        .querySelector("button")
+        .onclick =
+        function(){
 
-    const file =
-      files.next();
+          openForm(
+            service.name,
+            service.docs
+          );
 
-    spreadsheetId =
-      file.getId();
+        };
 
-    properties.setProperty(
-      "DATABASE_SPREADSHEET_ID",
-      spreadsheetId
+
+      grid.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* ==========================================================
+   RENDER SCHEMES
+========================================================== */
+
+function renderSchemes(){
+
+  const grid =
+    document.getElementById(
+      "schemeGrid"
     );
 
-    return SpreadsheetApp.openById(
-      spreadsheetId
+  grid.innerHTML = "";
+
+
+  schemes.forEach(
+    function(scheme){
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "scheme-card";
+
+
+      card.innerHTML = `
+
+        <h3>
+          ${escapeHtml(scheme.name)}
+        </h3>
+
+        <p>
+          ${escapeHtml(scheme.text)}
+        </p>
+
+        <button
+          class="btn"
+          type="button"
+        >
+          Request Help
+        </button>
+
+      `;
+
+
+      card
+        .querySelector("button")
+        .onclick =
+        function(){
+
+          openForm(
+            scheme.name +
+            " Government Scheme Assistance",
+            ["Required documents"]
+          );
+
+        };
+
+
+      grid.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* ==========================================================
+   OPEN CUSTOMER FORM
+========================================================== */
+
+function openForm(
+  serviceName,
+  documents
+){
+
+  document.getElementById(
+    "title"
+  ).textContent =
+    serviceName;
+
+
+  document.getElementById(
+    "service"
+  ).value =
+    serviceName;
+
+
+  const docs =
+    document.getElementById(
+      "docs"
     );
 
-  }
+  docs.innerHTML = "";
 
 
-  const spreadsheet =
-    SpreadsheetApp.create(
-      DATABASE_NAME
-    );
+  documents.forEach(
+    function(documentName,index){
+
+      const label =
+        document.createElement("label");
 
 
-  spreadsheetId =
-    spreadsheet.getId();
+      label.innerHTML = `
+
+        <b>
+          ${escapeHtml(documentName)}
+        </b>
+
+        <input
+          type="file"
+          id="document_${index}"
+          accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"
+        >
+
+      `;
 
 
-  properties.setProperty(
-    "DATABASE_SPREADSHEET_ID",
-    spreadsheetId
+      docs.appendChild(label);
+
+    }
   );
 
 
-  const file =
-    DriveApp.getFileById(
-      spreadsheetId
-    );
+  document.getElementById(
+    "status"
+  ).textContent = "";
 
 
-  folder.addFile(file);
-
-
-  try {
-    DriveApp
-      .getRootFolder()
-      .removeFile(file);
-  }
-
-  catch (error) {}
-
-
-  return spreadsheet;
+  document.getElementById(
+    "overlay"
+  ).classList.add("show");
 
 }
 
 
 /* ==========================================================
-   SHEET
-   ========================================================== */
+   CLOSE FORM
+========================================================== */
 
-function getSheet_() {
+function closeForm(){
 
-  const spreadsheet =
-    getDatabase_();
-
-
-  let sheet =
-    spreadsheet.getSheetByName(
-      SHEET_NAME
-    );
-
-
-  if (!sheet) {
-
-    sheet =
-      spreadsheet.insertSheet(
-        SHEET_NAME
-      );
-
-  }
-
-
-  if (sheet.getLastRow() === 0) {
-
-    sheet.appendRow([
-
-      "Date & Time",
-      "Customer Name",
-      "Mobile",
-      "Service",
-      "Remark",
-      "Status",
-      "Drive Folder",
-      "Request ID"
-
-    ]);
-
-
-    sheet
-      .getRange(1,1,1,8)
-      .setFontWeight("bold");
-
-  }
-
-
-  return sheet;
+  document.getElementById(
+    "overlay"
+  ).classList.remove("show");
 
 }
 
 
 /* ==========================================================
-   CUSTOMER REQUEST
-   ========================================================== */
+   FILE TO BASE64
+========================================================== */
 
-function doPost(e) {
+function b64(file){
 
-  let rowNumber = null;
-  let sheet = null;
+  return new Promise(
+    function(resolve,reject){
 
+      const reader =
+        new FileReader();
 
-  try {
+      reader.onload =
+        function(){
 
-    /* ------------------------------------------------------
-       RECEIVE DATA
-       ------------------------------------------------------ */
+          const result =
+            String(reader.result);
 
-    if (!e) {
-      throw new Error(
-        "No request event received."
-      );
-    }
+          const comma =
+            result.indexOf(",");
 
-
-    let data = null;
-
-
-    /*
-      Method 1:
-      JSON sent directly
-    */
-
-    if (
-      e.postData &&
-      e.postData.contents
-    ) {
-
-      const contents =
-        String(
-          e.postData.contents
-        ).trim();
-
-
-      if (contents) {
-
-        try {
-
-          data =
-            JSON.parse(
-              contents
-            );
-
-        }
-
-        catch (jsonError) {
-
-          console.log(
-            "POST body was not JSON."
+          resolve(
+            comma >= 0
+              ? result.substring(
+                  comma + 1
+                )
+              : result
           );
 
-        }
+        };
+
+      reader.onerror =
+        reject;
+
+      reader.readAsDataURL(file);
+
+    }
+  );
+
+}
+
+
+/* ==========================================================
+   CUSTOMER REQUEST SUBMISSION
+   IMPORTANT:
+   NORMAL FORM POST -> HIDDEN IFRAME
+========================================================== */
+
+async function submitForm(e){
+
+  e.preventDefault();
+
+
+  const form =
+    e.target;
+
+
+  const st =
+    document.getElementById(
+      "status"
+    );
+
+
+  const btn =
+    document.getElementById(
+      "send"
+    );
+
+
+  const files = [
+
+    ...document.querySelectorAll(
+      "#docs input[type=file]"
+    )
+
+  ]
+    .filter(
+      input => input.files.length
+    )
+    .map(
+      input => input.files[0]
+    );
+
+
+  if(!files.length){
+
+    st.style.color =
+      "#b91c1c";
+
+    st.textContent =
+      "Please upload at least one document.";
+
+    return;
+
+  }
+
+
+  if(
+    files.some(
+      function(file){
+
+        return (
+
+          file.size > 5242880 ||
+
+          ![
+            "image/jpeg",
+            "image/png",
+            "application/pdf"
+          ].includes(file.type)
+
+        );
 
       }
+    )
+  ){
 
-    }
+    st.style.color =
+      "#b91c1c";
 
+    st.textContent =
+      "Each file must be JPG, PNG or PDF and max 5 MB.";
 
-    /*
-      Method 2:
-      Normal HTML form.
-      The website sends "payload".
-    */
+    return;
 
-    if (
-      !data &&
-      e.parameter &&
-      e.parameter.payload
-    ) {
+  }
 
-      data =
-        JSON.parse(
-          e.parameter.payload
-        );
 
-    }
+  btn.disabled = true;
 
 
-    if (!data) {
+  st.style.color =
+    "#1d4ed8";
 
-      throw new Error(
-        "No customer request data received."
-      );
+  st.textContent =
+    "Preparing your request… please wait.";
 
-    }
 
+  try{
 
-    /* ------------------------------------------------------
-       CUSTOMER DETAILS
-       ------------------------------------------------------ */
+    const documents = [];
 
-    const customerName =
-      String(
-        data.customerName ||
-        "Unknown Customer"
-      ).trim();
 
+    for(
+      const file of files
+    ){
 
-    const mobile =
-      String(
-        data.mobile ||
-        ""
-      ).trim();
+      const base64 =
+        await b64(file);
 
 
-    const service =
-      String(
-        data.service ||
-        "Unknown Service"
-      ).trim();
+      documents.push({
 
+        fileName:
+          file.name,
 
-    const remark =
-      String(
-        data.remark ||
-        ""
-      ).trim();
+        mimeType:
+          file.type,
 
-
-    const requestId =
-      "DC-" +
-      Utilities.formatDate(
-        new Date(),
-        Session.getScriptTimeZone(),
-        "yyyyMMdd-HHmmss"
-      ) +
-      "-" +
-      Math.floor(
-        1000 +
-        Math.random() * 9000
-      );
-
-
-    /* ------------------------------------------------------
-       SAVE CUSTOMER ROW
-       ------------------------------------------------------ */
-
-    sheet =
-      getSheet_();
-
-
-    rowNumber =
-      sheet.getLastRow() + 1;
-
-
-    sheet
-      .getRange(
-        rowNumber,
-        1,
-        1,
-        8
-      )
-      .setValues([[
-        new Date(),
-        customerName,
-        mobile,
-        service,
-        remark,
-        "New",
-        "",
-        requestId
-      ]]);
-
-
-    SpreadsheetApp.flush();
-
-
-    console.log(
-      "Customer row saved: " +
-      rowNumber
-    );
-
-
-    /* ------------------------------------------------------
-       CREATE DRIVE FOLDER
-       ------------------------------------------------------ */
-
-    const mainFolder =
-      DriveApp.getFolderById(
-        FOLDER_ID
-      );
-
-
-    const safeName =
-      customerName
-        .replace(
-          /[\\/:*?"<>|]/g,
-          "_"
-        );
-
-
-    const safeService =
-      service
-        .replace(
-          /[\\/:*?"<>|]/g,
-          "_"
-        );
-
-
-    const date =
-      Utilities.formatDate(
-        new Date(),
-        Session.getScriptTimeZone(),
-        "yyyy-MM-dd"
-      );
-
-
-    const requestFolderName =
-      date +
-      "_" +
-      safeName +
-      "_" +
-      safeService +
-      "_" +
-      requestId;
-
-
-    const requestFolder =
-      mainFolder.createFolder(
-        requestFolderName
-      );
-
-
-    /* ------------------------------------------------------
-       SAVE DRIVE FOLDER LINK
-       ------------------------------------------------------ */
-
-    sheet
-      .getRange(
-        rowNumber,
-        7
-      )
-      .setValue(
-        requestFolder.getUrl()
-      );
-
-
-    SpreadsheetApp.flush();
-
-
-    /* ------------------------------------------------------
-       CUSTOMER DETAILS FILE
-       ------------------------------------------------------ */
-
-    const details =
-
-      "DISHA COMPUTERS CUSTOMER REQUEST\n\n" +
-
-      "Request ID: " +
-      requestId +
-      "\n\n" +
-
-      "Customer Name: " +
-      customerName +
-      "\n" +
-
-      "Mobile: " +
-      mobile +
-      "\n" +
-
-      "Service: " +
-      service +
-      "\n" +
-
-      "Remark: " +
-      remark +
-      "\n\n" +
-
-      "Submitted: " +
-      new Date().toString();
-
-
-    requestFolder.createFile(
-      "Customer_Details.txt",
-      details,
-      MimeType.PLAIN_TEXT
-    );
-
-
-    /* ------------------------------------------------------
-       SAVE DOCUMENTS
-       ------------------------------------------------------ */
-
-    if (
-      data.documents &&
-      Array.isArray(
-        data.documents
-      )
-    ) {
-
-      data.documents.forEach(
-        function(doc) {
-
-          try {
-
-            if (
-              !doc ||
-              !doc.data
-            ) {
-              return;
-            }
-
-
-            const bytes =
-              Utilities.base64Decode(
-                doc.data
-              );
-
-
-            const blob =
-              Utilities.newBlob(
-                bytes,
-                doc.mimeType ||
-                "application/octet-stream",
-                doc.fileName ||
-                "document"
-              );
-
-
-            requestFolder.createFile(
-              blob
-            );
-
-          }
-
-          catch (documentError) {
-
-            console.log(
-              "Document upload failed: " +
-              documentError
-            );
-
-          }
-
-        }
-      );
-
-    }
-
-
-    /* ------------------------------------------------------
-       EMAIL NOTIFICATION
-       ------------------------------------------------------ */
-
-    try {
-
-      const emailBody =
-
-        "NEW DISHA COMPUTERS CUSTOMER REQUEST\n\n" +
-
-        "Request ID: " +
-        requestId +
-        "\n\n" +
-
-        "Customer Name: " +
-        customerName +
-        "\n" +
-
-        "Mobile: " +
-        mobile +
-        "\n" +
-
-        "Service: " +
-        service +
-        "\n" +
-
-        "Remark: " +
-        remark +
-        "\n\n" +
-
-        "Google Drive Folder:\n" +
-        requestFolder.getUrl();
-
-
-      MailApp.sendEmail({
-
-        to: OWNER_EMAIL,
-
-        subject:
-          "DISHA COMPUTERS - New Customer Request",
-
-        body:
-          emailBody
+        data:
+          base64
 
       });
 
     }
 
-    catch (emailError) {
 
-      console.log(
-        "Email notification failed: " +
-        emailError
+    const customerData = {
+
+      customerName:
+        document
+          .getElementById("name")
+          .value
+          .trim(),
+
+      mobile:
+        document
+          .getElementById("mobile")
+          .value
+          .trim(),
+
+      service:
+        document
+          .getElementById("service")
+          .value
+          .trim(),
+
+      remark:
+        document
+          .getElementById("remark")
+          .value
+          .trim(),
+
+      documents:
+        documents
+
+    };
+
+
+    st.textContent =
+      "Submitting your request…";
+
+
+    /*
+      Create a normal HTML form.
+
+      This avoids fetch/CORS/no-cors.
+    */
+
+    const hiddenForm =
+      document.createElement(
+        "form"
       );
 
-    }
+
+    hiddenForm.method =
+      "POST";
 
 
-    /* ------------------------------------------------------
-       SUCCESS
-       ------------------------------------------------------ */
+    hiddenForm.action =
+      WEB_APP_URL;
 
-    return ContentService
-      .createTextOutput(
 
-        JSON.stringify({
+    hiddenForm.target =
+      "dishaSubmitFrame";
 
-          success: true,
 
-          message:
-            "Request received successfully.",
+    hiddenForm.style.display =
+      "none";
 
-          requestId:
-            requestId
 
-        })
-
-      )
-      .setMimeType(
-        ContentService.MimeType.JSON
+    const payload =
+      document.createElement(
+        "input"
       );
+
+
+    payload.type =
+      "hidden";
+
+
+    payload.name =
+      "payload";
+
+
+    payload.value =
+      JSON.stringify(
+        customerData
+      );
+
+
+    hiddenForm.appendChild(
+      payload
+    );
+
+
+    document.body.appendChild(
+      hiddenForm
+    );
+
+
+    /*
+      Submit to Apps Script
+      through the invisible iframe.
+    */
+
+    hiddenForm.submit();
+
+
+    /*
+      Apps Script processes the
+      request in the background.
+    */
+
+    setTimeout(
+      function(){
+
+        try{
+          hiddenForm.remove();
+        }
+        catch(error){}
+
+
+        st.style.color =
+          "#166534";
+
+
+        st.textContent =
+          "Request submitted successfully. DISHA COMPUTERS will contact you.";
+
+
+        form.reset();
+
+
+        btn.disabled =
+          false;
+
+
+        setTimeout(
+          function(){
+
+            closeForm();
+
+            st.textContent =
+              "";
+
+          },
+          3000
+        );
+
+
+      },
+      4000
+    );
 
 
   }
 
-  catch (error) {
+  catch(error){
 
-    console.log(
-      "CUSTOMER REQUEST ERROR: " +
+    console.error(
+      "CUSTOMER REQUEST ERROR:",
       error
     );
 
 
-    if (
-      sheet &&
-      rowNumber
-    ) {
-
-      try {
-
-        sheet
-          .getRange(
-            rowNumber,
-            6
-          )
-          .setValue(
-            "Received - Processing Issue"
-          );
+    st.style.color =
+      "#b91c1c";
 
 
-        SpreadsheetApp.flush();
-
-      }
-
-      catch (updateError) {
-
-        console.log(
-          "Could not update error status: " +
-          updateError
-        );
-
-      }
-
-    }
+    st.textContent =
+      "Upload failed. Please call 7066081414.";
 
 
-    return ContentService
-      .createTextOutput(
-
-        JSON.stringify({
-
-          success: false,
-
-          message:
-            error.toString()
-
-        })
-
-      )
-      .setMimeType(
-        ContentService.MimeType.JSON
-      );
+    btn.disabled =
+      false;
 
   }
 
@@ -658,77 +1948,125 @@ function doPost(e) {
 
 
 /* ==========================================================
-   DATABASE TEST
-   ========================================================== */
+   WELCOME POPUP
+========================================================== */
 
-function testDatabase() {
+function closeWelcome(){
 
-  const sheet =
-    getSheet_();
+  document.getElementById(
+    "welcome"
+  ).classList.remove("show");
 
-
-  Logger.log(
-    "Database: " +
-    sheet.getParent().getName()
-  );
+}
 
 
-  Logger.log(
-    "Database ID: " +
-    sheet.getParent().getId()
-  );
+window.addEventListener(
+  "load",
+  function(){
+
+    renderCategories();
+
+    renderServices();
+
+    renderSchemes();
+
+    setTimeout(
+      function(){
+
+        document.getElementById(
+          "welcome"
+        ).classList.add("show");
+
+      },
+      700
+    );
+
+  }
+);
 
 
-  Logger.log(
-    "Sheet: " +
-    sheet.getName()
-  );
+/* ==========================================================
+   SCROLL TO SERVICES
+========================================================== */
 
+function scrollToServices(){
 
-  Logger.log(
-    "Database URL: " +
-    sheet.getParent().getUrl()
-  );
+  document.getElementById(
+    "services"
+  ).scrollIntoView({
+    behavior:"smooth"
+  });
 
 }
 
 
 /* ==========================================================
-   TEST CUSTOMER ROW
-   ========================================================== */
+   SCHEME POPUP
+========================================================== */
 
-function testCustomerRow() {
+function closeSchemePopup(){
 
-  const sheet =
-    getSheet_();
-
-
-  sheet.appendRow([
-
-    new Date(),
-
-    "TEST CUSTOMER",
-
-    "9999999999",
-
-    "Test Service",
-
-    "Database connection test",
-
-    "New",
-
-    "Test",
-
-    "TEST-001"
-
-  ]);
-
-
-  SpreadsheetApp.flush();
-
-
-  Logger.log(
-    "TEST CUSTOMER ROW ADDED SUCCESSFULLY"
-  );
+  document.getElementById(
+    "schemePopup"
+  ).classList.remove("show");
 
 }
+
+
+/* ==========================================================
+   HTML ESCAPE
+========================================================== */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* ==========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+========================================================== */
+
+document.getElementById(
+  "overlay"
+).addEventListener(
+  "click",
+  function(event){
+
+    if(
+      event.target ===
+      document.getElementById("overlay")
+    ){
+
+      closeForm();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
