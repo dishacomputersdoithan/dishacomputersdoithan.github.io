@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DISHA COMPUTERS | Setu Suvidha Kendra</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#f7f9fc;color:#182230;line-height:1.5;overflow-x:hidden}
+a{text-decoration:none}
+:root{--blue:#1746a2;--purple:#6336c9;--pink:#d92f70;--ink:#182230;--muted:#667085;--line:#e5eaf2;--card:#fff}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid #e8edf5;box-shadow:0 5px 25px #172b4d0d}
+.nav{max-width:1240px;margin:auto;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;min-width:240px}.logo{width:52px;height:52px;border-radius:14px;background:#fff;border:1px solid #e4e9f2;display:grid;place-items:center;overflow:hidden;box-shadow:0 6px 18px #1b31520e;font-weight:900;color:var(--blue);font-size:20px}.logo img{width:100%;height:100%;object-fit:contain}.brand h1{margin:0;color:#173b82;font-size:20px;letter-spacing:.3px}.brand small{color:#7b8494;font-size:12px}
+nav{display:flex;align-items:center;gap:4px}nav a{color:#344054;font-size:13px;font-weight:800;padding:9px 12px;border-radius:9px}nav a:hover{background:#eef3ff;color:var(--blue)}
+.adminBtn{border:0;border-radius:10px;padding:10px 13px;background:#173b82;color:white;font-weight:800;cursor:pointer}
+.hero{background:linear-gradient(135deg,#edf4ff 0%,#fff 52%,#fff1f7 100%);padding:72px 22px 58px;border-bottom:1px solid #edf0f5}
+.heroInner{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid #dfe7f7;color:var(--blue);font-size:12px;font-weight:800;box-shadow:0 5px 15px #23406c10}
+.hero h2{font-size:52px;line-height:1.04;margin:15px 0;color:#173b82;letter-spacing:-1.5px}.gradient{background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:720px;color:#5c687b;font-size:17px;margin:0 0 24px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:10px;padding:12px 17px;font-weight:800;cursor:pointer;background:var(--blue);color:#fff;box-shadow:0 7px 18px #1746a21c}.btn:hover{transform:translateY(-1px)}.btn.light{background:#fff;color:var(--blue);border:1px solid #dce5f4;box-shadow:none}.btn.green{background:#14865b}.btn.pink{background:#d92f70}
+.heroPanel{background:#fff;border:1px solid #e4e9f2;border-radius:20px;padding:26px;box-shadow:0 18px 45px #1f376212}.heroPanel .name{font-size:22px;font-weight:900;color:#173b82}.info{margin-top:15px;color:#596579;font-size:14px;line-height:1.9}.info b{color:#27364c}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:25px}.stat{background:#fff;border:1px solid #e4e9f2;border-radius:12px;padding:13px}.stat b{display:block;color:#173b82;font-size:15px}.stat span{color:#7b8494;font-size:11px}
+
+section{padding:62px 22px}.wrap{max-width:1240px;margin:auto}.sectionHead{text-align:center;max-width:760px;margin:0 auto 30px}.sectionHead h2{margin:0;color:#173b82;font-size:34px;letter-spacing:-.5px}.sectionHead p{color:#737e8f;margin:7px 0 0}
+.search{max-width:650px;margin:0 auto 25px;position:relative}.search input{width:100%;padding:14px 18px 14px 45px;border:1px solid #d9e0ea;border-radius:12px;background:#fff;font-size:15px;outline:none}.search input:focus{border-color:#8ca8df;box-shadow:0 0 0 4px #1746a211}.search span{position:absolute;left:17px;top:12px;font-size:19px}
+.categoryTitle{font-size:17px;color:#344054;font-weight:900;margin:30px 0 14px;border-left:4px solid var(--blue);padding-left:10px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 7px 25px #1d34580b;transition:.2s;display:flex;flex-direction:column;min-height:235px}.card:hover{transform:translateY(-3px);box-shadow:0 15px 32px #1d345816}
+.icon{width:44px;height:44px;border-radius:12px;background:#eef4ff;display:grid;place-items:center;font-size:23px;margin-bottom:13px}.card h3{margin:0 0 7px;color:#243b73;font-size:17px}.card p{margin:0;color:#6c7788;font-size:13px;line-height:1.55;flex:1}.cardActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}.smallBtn{border:0;border-radius:8px;padding:9px 11px;background:#eef3ff;color:var(--blue);font-weight:800;font-size:11px;cursor:pointer}.smallBtn.primary{background:var(--blue);color:#fff}
+.schemeSection{background:#fff;border-top:1px solid #edf0f5;border-bottom:1px solid #edf0f5}
+.schemeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.schemeCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:21px;box-shadow:0 8px 25px #1d34580a}.schemeHead{display:flex;align-items:center;gap:11px;margin-bottom:10px}.schemeIcon{width:42px;height:42px;border-radius:11px;background:#f0f3ff;display:grid;place-items:center;font-size:21px}.schemeCard h3{margin:0;color:#243b73;font-size:17px}.schemeCard ul{margin:10px 0 0;padding-left:18px;color:#667085;font-size:13px;line-height:1.75}.schemeCard .cardActions{margin-top:13px}
+.notice{margin:24px auto 0;max-width:950px;background:#fff9e9;border:1px solid #f0dfad;border-radius:12px;padding:14px 16px;color:#6b5a28;font-size:13px;text-align:center}
+
+.contactSection{background:linear-gradient(135deg,#f2f6ff,#fff)}.contactGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contactCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:25px;box-shadow:0 8px 25px #1d34580b}.contactCard h3{margin-top:0;color:#173b82}.contactLine{padding:10px 0;border-bottom:1px solid #edf0f5;color:#596579;font-size:14px}.contactLine:last-child{border:0}.contactActions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
+footer{background:#172033;color:#fff;text-align:center;padding:30px 22px}.footerName{font-size:18px;font-weight:900}.footerText{font-size:13px;opacity:.78}
+
+.modal{display:none;position:fixed;inset:0;background:#111827aa;z-index:500;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.box{background:#fff;width:min(680px,100%);max-height:92vh;overflow:auto;border-radius:18px;padding:25px;position:relative;box-shadow:0 25px 70px #0004}.close{position:absolute;right:13px;top:12px;border:0;width:34px;height:34px;border-radius:50%;background:#eef1f5;color:#344054;font-size:21px;cursor:pointer}.box h2{margin:0;color:#173b82}.sub{color:#667085;font-size:13px}.docBox{background:#f7f9fd;border:1px solid #e1e7f0;border-radius:12px;padding:15px;margin:15px 0}.docBox h3{margin:0 0 8px;font-size:15px;color:#344054}.docBox ul{margin:0;padding-left:20px;color:#5f6b7c;font-size:13px;line-height:1.8}
+label{display:block;font-weight:800;font-size:13px;margin:12px 0 5px}input,textarea{width:100%;padding:11px;border:1px solid #d6dde8;border-radius:9px;font-size:14px}textarea{min-height:85px;resize:vertical}.files{border:2px dashed #d6dde8;border-radius:10px;padding:13px;background:#fafbfe}.files small{display:block;color:#7a8493;margin-top:5px}.success{display:none;text-align:center;padding:25px}.success.show{display:block}.success h3{color:#14865b}
+.welcomeModal{display:none}.welcomeModal.show{display:flex}.welcomeBox{text-align:center;max-width:480px}.welcomeIcon{font-size:50px}.welcomeBox h2{margin:5px 0;color:#173b82}.welcomeBox p{color:#667085}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(3,1fr)}.heroInner{grid-template-columns:1fr}.heroPanel{max-width:650px}.schemeGrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.nav{padding:8px 12px}.brand{min-width:0}.brand h1{font-size:16px}.brand small{font-size:10px}nav a{display:none}.adminBtn{font-size:11px;padding:8px}.hero{padding-top:45px}.hero h2{font-size:39px}.hero p{font-size:15px}.stats{grid-template-columns:1fr}.grid,.schemeGrid,.contactGrid{grid-template-columns:1fr}.card{min-height:0}section{padding:48px 14px}.sectionHead h2{font-size:28px}.actions .btn{width:100%}}
+
+/* DISHA COMPUTERS promotional advertising */
+.adWrap{padding:18px 22px 8px;background:#f7f9fc}.adBanner{max-width:1240px;margin:auto;border-radius:20px;padding:26px 30px;background:linear-gradient(120deg,#173b82,#6336c9 55%,#d92f70);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:22px;box-shadow:0 15px 35px #173b8226;position:relative;overflow:hidden}.adBanner:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-60px;top:-75px;background:#ffffff18}.adText{position:relative;z-index:1}.adKicker{font-size:12px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;opacity:.9}.adBanner h3{font-size:28px;margin:5px 0 6px}.adBanner p{margin:0;opacity:.94;font-size:14px}.adList{margin-top:10px;font-size:13px;font-weight:700}.adActions{position:relative;z-index:1;display:flex;gap:9px;flex-wrap:wrap}.adBtn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:10px;padding:11px 15px;font-weight:900;cursor:pointer;text-decoration:none;background:#fff;color:#173b82}.adBtn.alt{background:#19a56f;color:#fff}.promoGrid{max-width:1240px;margin:16px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.promoItem{background:#fff;border:1px solid #e4e9f2;border-radius:14px;padding:14px 16px;box-shadow:0 6px 20px #1d34580a}.promoItem b{display:block;color:#173b82;font-size:14px}.promoItem span{display:block;color:#697586;font-size:12px;margin-top:3px}@media(max-width:760px){.adWrap{padding:12px 14px 4px}.adBanner{padding:22px 19px;display:block}.adBanner h3{font-size:24px}.adActions{margin-top:16px}.adBtn{flex:1}.promoGrid{grid-template-columns:1fr;margin-top:10px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav">
+<div class="brand">
+<div class="logo"><img src="disha-logo.png" alt="DISHA COMPUTERS logo" onerror="this.style.display='none';this.parentElement.textContent='DC'"></div>
+<div><h1>DISHA COMPUTERS</h1><small>Setu Suvidha Kendra • Doithan</small></div>
+</div>
+<nav>
+<a href="#home">HOME</a><a href="#services">SERVICES</a><a href="#schemes">SCHEMES</a><a href="#contact">CONTACT</a>
+<button class="adminBtn" onclick="openAdmin()">ADMIN LOGIN</button>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="heroInner">
+<div>
+<span class="eyebrow">✨ Your Local Digital Service Partner</span>
+<h2>Digital Services<br><span class="gradient">Made Simple</span></h2>
+<p>Choose your service, check the required documents, and send your request online. DISHA COMPUTERS will review your requirement and assist you.</p>
+<div class="actions">
+<button class="btn" onclick="openRequest()">🚀 GET STARTED</button>
+<a class="btn light" href="#services">EXPLORE SERVICES</a>
+<a class="btn green" href="tel:7066081414">📞 CALL NOW</a>
+<a class="btn pink" target="_blank" href="https://wa.me/917066081414?text=Hello%20DISHA%20COMPUTERS%2C%20I%20need%20help%20with%20a%20service.">💬 WHATSAPP</a>
+</div>
+<div class="stats">
+<div class="stat"><b>Online</b><span>Service Requests</span></div>
+<div class="stat"><b>Document</b><span>Requirements shown</span></div>
+<div class="stat"><b>Local</b><span>Personal Assistance</span></div>
+</div>
+</div>
+<div class="heroPanel">
+<div class="name">DISHA COMPUTERS</div>
+<div class="info">
+👤 Owner: <b>Bhaginath Golhar</b><br>
+📍 At-Doithan, Post-Doithan, Tal-Ashti, Dist-Beed, PIN 414203<br>
+📞 <b>7066081414</b>
+</div>
+<div class="actions" style="margin-top:17px">
+<a class="btn light" target="_blank" href="https://www.google.com/maps/search/?api=1&query=DISHA+COMPUTERS%2C+Doithan%2C+Beed%2C+Maharashtra+414203">📍 MAP</a>
+<button class="btn" onclick="openRequest()">📝 REQUEST SERVICE</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="adWrap" aria-label="DISHA COMPUTERS advertisement">
+<div class="adBanner">
+<div class="adText">
+<div class="adKicker">📢 DISHA COMPUTERS • DOITHAN</div>
+<h3>Need an Online or Government Service?</h3>
+<p>Get local digital assistance for online forms, certificates, Aadhaar, Udyam, Shop Act, schemes and more.</p>
+<div class="adList">🖥️ Online Services &nbsp; • &nbsp; 📜 Certificates &nbsp; • &nbsp; 🌾 Government Schemes &nbsp; • &nbsp; 🖨️ Printing & Xerox</div>
+</div>
+<div class="adActions">
+<button class="adBtn" onclick="openRequest()">🚀 REQUEST SERVICE</button>
+<a class="adBtn alt" target="_blank" href="https://wa.me/917066081414?text=Hello%20DISHA%20COMPUTERS%2C%20I%20need%20help%20with%20a%20service.">💬 WHATSAPP</a>
+</div>
+</div>
+<div class="promoGrid">
+<div class="promoItem"><b>📍 Local Assistance</b><span>Doithan • Tal-Ashti • Dist-Beed</span></div>
+<div class="promoItem"><b>📞 Call: 7066081414</b><span>Contact DISHA COMPUTERS for service help</span></div>
+<div class="promoItem"><b>📝 Easy Online Request</b><span>Choose a service and submit your requirement</span></div>
+</div>
+</section>
+
+<section id="services">
+<div class="wrap">
+<div class="sectionHead"><h2>Our Services</h2><p>Click <b>REQUIRED DOCS</b> before requesting a service so you know what documents to prepare.</p></div>
+<div class="search"><span>🔎</span><input id="serviceSearch" oninput="filterCards()" placeholder="Search services..."></div>
+<div class="grid" id="serviceGrid"></div>
+</div>
+</section>
+
+<section id="schemes" class="schemeSection">
+<div class="wrap">
+<div class="sectionHead"><h2>Government Schemes & Yojana</h2><p>Browse a category to see related facilities and the documents normally needed for assistance.</p></div>
+<div class="schemeGrid" id="schemeGrid"></div>
+<div class="notice"><b>Important:</b> Document requirements can vary by scheme, applicant and department. DISHA COMPUTERS will check the applicable requirement before processing the application.</div>
+</div>
+</section>
+
+<section id="contact" class="contactSection">
+<div class="wrap">
+<div class="sectionHead"><h2>Contact DISHA COMPUTERS</h2><p>Get in touch or submit your service request online.</p></div>
+<div class="contactGrid">
+<div class="contactCard">
+<h3>Setu Suvidha Kendra</h3>
+<div class="contactLine">👤 <b>Owner:</b> Bhaginath Golhar</div>
+<div class="contactLine">📍 <b>Address:</b> At-Doithan, Post-Doithan, Tal-Ashti, Dist-Beed, PIN 414203</div>
+<div class="contactLine">📞 <b>Mobile:</b> 7066081414</div>
+<div class="contactActions">
+<a class="btn" href="tel:7066081414">📞 CALL</a>
+<a class="btn pink" target="_blank" href="https://wa.me/917066081414?text=Hello%20DISHA%20COMPUTERS%2C%20I%20need%20help%20with%20a%20service.">💬 WHATSAPP</a>
+<a class="btn light" target="_blank" href="https://www.google.com/maps/search/?api=1&query=DISHA+COMPUTERS%2C+Doithan%2C+Beed%2C+Maharashtra+414203">📍 MAP</a>
+</div>
+</div>
+<div class="contactCard">
+<h3>Need a Service?</h3>
+<p style="color:#667085">Select the service, check the required documents, then submit your name, mobile number and documents.</p>
+<div class="docBox"><b>Simple process</b><br><span style="color:#667085;font-size:13px">1. Choose service → 2. Check documents → 3. Upload → 4. Submit request → 5. We contact you</span></div>
+<button class="btn" style="width:100%" onclick="openRequest()">📝 SUBMIT SERVICE REQUEST</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="footerName">DISHA COMPUTERS</div><div class="footerText">Setu Suvidha Kendra • Doithan • Beed<br>© 2026 DISHA COMPUTERS</div></footer>
+
+<iframe name="dishaSubmitFrame" id="dishaSubmitFrame" style="display:none"></iframe>
+
+<div class="modal" id="docsModal">
+<div class="box">
+<button class="close" onclick="closeDocs()">×</button>
+<h2 id="docsTitle">Required Documents</h2>
+<p class="sub" id="docsSubtitle"></p>
+<div class="docBox" id="docsContent"></div>
+<div class="actions">
+<button class="btn" id="docsRequestBtn">📝 REQUEST THIS SERVICE</button>
+<button class="btn light" onclick="closeDocs()">CLOSE</button>
+</div>
+</div>
+</div>
+
+<div class="modal" id="requestModal">
+<div class="box">
+<button class="close" onclick="closeRequest()">×</button>
+<div id="formArea">
+<h2>Customer Service Request</h2>
+<p class="sub">Enter your details and upload the documents you have prepared.</p>
+<form id="requestForm" onsubmit="submitForm(event)">
+<label>Customer Name *</label><input id="customerName" required>
+<label>Mobile Number *</label><input id="mobile" type="tel" pattern="[0-9]{10}" maxlength="10" required>
+<label>Service *</label><input id="service" required>
+<label>Remark / Requirement</label><textarea id="remark" placeholder="Tell us what you need..."></textarea>
+<label>Documents *</label>
+<div class="files"><input id="documents" type="file" multiple accept=".jpg,.jpeg,.png,.pdf" required><small>JPG/PNG/PDF, maximum 5 MB per file.</small></div>
+<button class="btn" id="submitBtn" type="submit" style="margin-top:15px;width:100%">SUBMIT REQUEST</button>
+</form>
+</div>
+<div class="success" id="successArea"><div style="font-size:50px">✅</div><h3>Request Submitted Successfully</h3><p>Your request has been received. DISHA COMPUTERS will contact you regarding the service.</p><button class="btn" onclick="closeRequest()">CLOSE</button></div>
+</div>
+</div>
+
+<div class="modal" id="adminModal">
+<div class="box" style="max-width:430px">
+<button class="close" onclick="closeAdmin()">×</button>
+<h2>Admin Login</h2><p class="sub">Admin access is for DISHA COMPUTERS only.</p>
+<div class="notice">The Admin Dashboard uses the same Google Sheet and Drive database as customer requests.</div>
+<button class="btn" style="width:100%" onclick="goAdmin()">OPEN ADMIN DASHBOARD</button>
+</div>
+</div>
+
+<div class="modal welcomeModal" id="welcomeModal">
+<div class="box welcomeBox">
+<button class="close" onclick="closeWelcome()">×</button>
+<div class="welcomeIcon">👋</div>
+<h2>Welcome to DISHA COMPUTERS</h2>
+<p><b>Setu Suvidha Kendra – Doithan</b></p>
+<p>Online services, government services and digital assistance — all in one place.</p>
+<button class="btn" onclick="closeWelcome();openRequest()">🚀 GET STARTED</button>
+</div>
+</div>
+
+<script>
+const WEB_APP_URL="https://script.google.com/macros/s/AKfycbwUPnEY19Vz29pT-T2Y1qNVhv8hdFkL1857CTyA4-7e-sixfhhwAJQP-rurIiHUGjbm3Q/exec";
+const ADMIN_URL=WEB_APP_URL+"?page=dashboard";
+
+const services=[
+["📝","Online Forms","Online application forms and assistance.","Online Forms",["Aadhaar/identity proof","Mobile number","Address proof where required","Service-specific supporting documents"]],
+["🎓","Education Certificate","Education-related certificate and online work.","Education Certificate",["Identity proof","Student/Applicant details","School/College record or certificate","Address/contact details"]],
+["🏢","Udyam Registration","Assistance for MSME/Udyam registration.","Udyam Registration",["Aadhaar of proprietor/authorized person","PAN","Mobile number linked/available for verification","Business details and bank details where applicable"]],
+["🪪","Aadhaar Services","Aadhaar-related service assistance.","Aadhaar Services",["Aadhaar number/card if available","Registered mobile number where applicable","Supporting identity/address document if the requested service requires it"]],
+["🏪","Shop Act","Shop Act registration and related assistance.","Shop Act",["Aadhaar/PAN","Address proof of establishment","Business/firm details","Rent agreement/ownership proof where applicable","Photograph and other applicable declarations"]],
+["📜","Caste Certificate","Assistance with caste certificate application.","Caste Certificate",["Identity proof","Address proof","Caste evidence such as school/official records, where applicable","Applicant/family supporting documents as required"]],
+["💰","Income Certificate","Assistance with income certificate application.","Income Certificate",["Identity proof","Address proof","Income-related supporting proof","Self-declaration/affidavit where applicable"]],
+["🏠","Residence Certificate","Assistance with residence/domicile-related applications.","Residence Certificate",["Identity proof","Address proof","Residence/supporting local records","Applicant details"]],
+["🎓","Scholarship","Online scholarship applications and assistance.","Scholarship",["Student identity proof","Aadhaar where applicable","School/college admission or bonafide details","Previous marksheet","Bank account details","Income/caste documents where applicable"]],
+["🖨️","Printing","Printing and document preparation.","Printing",["Digital file/document to print"]],
+["📄","Xerox","Document photocopy/Xerox services.","Xerox",["Original document or clear digital copy"]],
+["📷","Scanning","Document scanning and digital copies.","Scanning",["Original document or clear paper document"]]
+];
+
+const schemes=[
+["👨‍🌾","Farmer",["Farmer scheme assistance","Agriculture-related online applications","Farmer certificates/forms","Crop/agriculture application assistance","Other farmer facilities"],["Aadhaar/identity proof","Mobile number","Bank details/passbook where applicable","Land/farmer records where applicable","Scheme-specific documents"],"Government Scheme - Farmer"],
+["👩","Women",["Women welfare schemes","Women assistance applications","Online forms","Education/employment-related facilities","Other women facilities"],["Aadhaar/identity proof","Address proof","Bank details where applicable","Income/family documents where applicable","Scheme-specific documents"],"Government Scheme - Women"],
+["🎓","Education & Scholarship",["Scholarship assistance","Student applications","Education forms","Bonafide/admission assistance","Other education facilities"],["Student identity proof","Aadhaar where applicable","Bonafide/admission details","Marksheet","Bank details","Income/caste documents where applicable"],"Government Scheme - Education & Scholarship"],
+["🏠","Housing",["Housing scheme assistance","Online housing applications","Document/form assistance","Application status assistance"],["Identity proof","Address proof","Income/family details where applicable","Land/house documents where applicable","Bank details where applicable"],"Government Scheme - Housing"],
+["👴","Senior Citizen",["Senior citizen facilities","Online forms","Certificate/application assistance","Welfare scheme assistance"],["Identity proof","Age proof","Address proof","Bank details where applicable","Scheme-specific documents"],"Government Scheme - Senior Citizen"],
+["♿","Divyang",["Divyang welfare assistance","Online applications","Certificate/form assistance","Benefit/scheme applications"],["Identity proof","Address proof","Disability certificate where applicable","Bank details where applicable","Scheme-specific documents"],"Government Scheme - Divyang"],
+["💼","Employment",["Employment scheme assistance","Online registration/forms","Job-related digital services","Skill/training application assistance"],["Identity proof","Address proof","Educational certificates","Bank details where applicable","Photograph and scheme-specific documents"],"Government Scheme - Employment"],
+["💰","Financial Assistance",["Financial assistance schemes","Online applications","Pension/benefit assistance","Related forms and documents"],["Identity proof","Address proof","Income/family documents where applicable","Bank details","Scheme-specific documents"],"Government Scheme - Financial Assistance"],
+["🏪","Business",["Business scheme assistance","Udyam-related help","Business forms/applications","Registration assistance"],["Aadhaar/PAN","Business details","Bank details","Address/business proof","Registration-specific documents"],"Government Scheme - Business"],
+["❤️","Health",["Health scheme assistance","Online applications","Health-related forms","Benefit/application assistance"],["Identity proof","Address proof","Health card/certificate where applicable","Family/income details where applicable","Scheme-specific documents"],"Government Scheme - Health"],
+["📋","Other Government Schemes",["Other welfare schemes","Application assistance","Document/form assistance","Scheme search and request help"],["Identity proof","Address proof","Mobile number","Bank details where applicable","Scheme-specific documents"],"Government Scheme - Other"]
+];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+
+function renderServices(){
+ const grid=document.getElementById("serviceGrid");
+ grid.innerHTML=services.map((x,i)=>`
+ <article class="card searchable">
+   <div class="icon">${x[0]}</div>
+   <h3>${esc(x[1])}</h3>
+   <p>${esc(x[2])}</p>
+   <div class="cardActions">
+    <button class="smallBtn" onclick="showDocs('service',${i})">📋 REQUIRED DOCS</button>
+    <button class="smallBtn primary" onclick="openRequest(${JSON.stringify(x[3])})">REQUEST</button>
+   </div>
+ </article>`).join("");
+}
+function renderSchemes(){
+ const grid=document.getElementById("schemeGrid");
+ grid.innerHTML=schemes.map((x,i)=>`
+ <article class="schemeCard">
+  <div class="schemeHead"><div class="schemeIcon">${x[0]}</div><h3>${esc(x[1])}</h3></div>
+  <ul>${x[2].map(v=>`<li>${esc(v)}</li>`).join("")}</ul>
+  <div class="cardActions">
+   <button class="smallBtn" onclick="showDocs('scheme',${i})">📋 REQUIRED DOCS</button>
+   <button class="smallBtn primary" onclick="openRequest(${JSON.stringify(x[4])})">REQUEST HELP</button>
+  </div>
+ </article>`).join("");
+}
+function filterCards(){
+ const q=document.getElementById("serviceSearch").value.toLowerCase().trim();
+ document.querySelectorAll("#serviceGrid .searchable").forEach(c=>c.style.display=c.innerText.toLowerCase().includes(q)?"flex":"none");
+}
+function showDocs(type,index){
+ const x=type==="service"?services[index]:schemes[index];
+ document.getElementById("docsTitle").textContent="Required Documents — "+x[1];
+ document.getElementById("docsSubtitle").textContent="Please prepare the following documents before submitting your request.";
+ const docs=type==="service"?x[4]:x[3];
+ document.getElementById("docsContent").innerHTML="<h3>Documents normally required</h3><ul>"+docs.map(d=>"<li>"+esc(d)+"</li>").join("")+"</ul>";
+ document.getElementById("docsContent").innerHTML+="<p style='margin:10px 0 0;color:#7a8493;font-size:12px'><b>Note:</b> Exact documents may vary depending on the applicant and applicable department/scheme.</p>";
+ document.getElementById("docsRequestBtn").onclick=()=>{closeDocs();openRequest(type==="service"?x[3]:x[4])};
+ document.getElementById("docsModal").classList.add("show");
+}
+function closeDocs(){document.getElementById("docsModal").classList.remove("show")}
+function openRequest(service=""){
+ document.getElementById("requestModal").classList.add("show");
+ document.getElementById("successArea").classList.remove("show");
+ document.getElementById("formArea").style.display="block";
+ if(service)document.getElementById("service").value=service;
+}
+function closeRequest(){document.getElementById("requestModal").classList.remove("show");document.getElementById("requestForm").reset()}
+function openAdmin(){document.getElementById("adminModal").classList.add("show")}
+function closeAdmin(){document.getElementById("adminModal").classList.remove("show")}
+function goAdmin(){window.open(ADMIN_URL,"_blank","noopener")}
+function closeWelcome(){document.getElementById("welcomeModal").classList.remove("show")}
+
+async function submitForm(e){
+ e.preventDefault();
+ const btn=document.getElementById("submitBtn"),files=[...document.getElementById("documents").files];
+ if(!files.length){alert("Please select at least one document.");return}
+ for(const f of files){if(f.size>5*1024*1024){alert("Each file must be 5 MB or smaller: "+f.name);return}}
+ btn.disabled=true;btn.textContent="SUBMITTING...";
+ try{
+  const docs=await Promise.all(files.map(f=>new Promise((resolve,reject)=>{
+   const r=new FileReader();r.onload=()=>resolve({fileName:f.name,mimeType:f.type,data:String(r.result).split(",")[1]});r.onerror=reject;r.readAsDataURL(f)
+  })));
+  const payload={customerName:document.getElementById("customerName").value.trim(),mobile:document.getElementById("mobile").value.trim(),service:document.getElementById("service").value.trim(),remark:document.getElementById("remark").value.trim(),documents:docs};
+  const form=document.createElement("form");form.method="POST";form.action=WEB_APP_URL;form.target="dishaSubmitFrame";form.style.display="none";
+  const input=document.createElement("input");input.type="hidden";input.name="payload";input.value=JSON.stringify(payload);form.appendChild(input);document.body.appendChild(form);form.submit();form.remove();
+  setTimeout(()=>{document.getElementById("formArea").style.display="none";document.getElementById("successArea").classList.add("show");btn.disabled=false;btn.textContent="SUBMIT REQUEST"},4000);
+ }catch(err){alert("Unable to prepare the request. Please try again.");btn.disabled=false;btn.textContent="SUBMIT REQUEST"}
+}
+window.addEventListener("click",e=>{
+ if(e.target.id==="requestModal")closeRequest();
+ if(e.target.id==="adminModal")closeAdmin();
+ if(e.target.id==="docsModal")closeDocs();
+});
+renderServices();renderSchemes();
+window.addEventListener("load",()=>setTimeout(()=>document.getElementById("welcomeModal").classList.add("show"),700));
+</script>
+</body>
+</html>
